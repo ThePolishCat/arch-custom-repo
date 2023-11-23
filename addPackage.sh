@@ -8,7 +8,7 @@ cd down
 repoctl down $1
 cd $1
 makepkg -sr --sign --config ../../makepkg.conf
-repoctl add *.pkg.tar.zst
+REPOCTL_CONFIG=../../repoctl.conf repoctl add *.pkg.tar.zst
 cd ../../
 bash updateRepo.sh
 rm -fr down
