@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir down
 cd down
-repoctl down -o build-order.txt -u
+REPOCTL_CONFIG=../repoctl.conf repoctl down -o build-order.txt -u
     for pkg in $(cat build-order.txt); do
         (
             cd $pkg
@@ -14,6 +14,6 @@ repoctl down -o build-order.txt -u
             fi
         )
     done
-cd ../../
-bash updateRepo.sh
+cd ..
+./updateRepo.sh
 rm -fr down
